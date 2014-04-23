@@ -1,7 +1,7 @@
 Android FlatUI
 ==============
 
-Android FlatUI is an Open Source Android library that allows developers to easily create professional looking &amp; visual appealing "Flat UI" applications. Feel free to use it in your Android apps provided that you cite this project and include the license in your app. 
+Android FlatUI is an Open Source Android library that allows developers to easily create professional looking &amp; visual appealing "Flat UI" applications. **Feel free to use it in your Android apps provided that you cite this project and include the license in your app. **
 
 
 What "new" would I have to learn?
