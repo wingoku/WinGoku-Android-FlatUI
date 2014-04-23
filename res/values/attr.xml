@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    
+     <declare-styleable name="wingokuFlatButton">
+        <attr name="pressedStateColor" format="string"/>
+        <attr name="normalStateColor" format="string"/>
+    </declare-styleable>
+    
+     
+    <declare-styleable name="wingokuFlatEditText">
+        <attr name="backgroundColor" format="string"/>
+    </declare-styleable>
+    
+    <declare-styleable name="wingokuFlatCheckBox">
+        <attr name="cbColor" format="string"/>
+    </declare-styleable>
+    
+    
+    <declare-styleable name="wingokuFlatRadioButton">
+        <attr name="rbColor" format="string"/>
+    </declare-styleable>
+    
+</resources>
