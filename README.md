@@ -19,7 +19,7 @@ IDE Setup (Eclipse)
 4. UNCHECK both "Copy projects into workspace" and "Add project to working sets"
 5. Finish
 
-Integrating the bibrary in your projects
+Integrating the library in your projects
 ------------------------------------------
 
 After you have imported the library in your Eclipse workspace by following the above mentioned steps
