@@ -35,6 +35,13 @@ How do I hack/contribute to the library?
 
 If you have fixed a bug, improved an algorithm or otherwise contributed to the library and you feel like sharing your work with the community, please send me a pull request on GitHub with a concise description of the changes. Please respect & follow my coding style and use proper descriptive comments, indentations etc.
 
+
+Inspired By
+-----------
+
+eluleci Android FlatUI
+
+
 Developed by
 ----------
 
