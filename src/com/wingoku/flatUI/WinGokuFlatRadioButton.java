@@ -49,70 +49,73 @@ public class WinGokuFlatRadioButton extends RadioButton{
 	
 	private void initializeShit(Context context, AttributeSet attrs)
 	{
-		setText(""); // removing text set by the user inside the radioButton widget, because it appears inside the radioButton for some reason
+		if(!isInEditMode())
+		{
+			setText(""); // removing text set by the user inside the radioButton widget, because it appears inside the radioButton for some reason
 		
 		//isRadioButtonEnabled();
-		
-		this.setBackground(getResources().getDrawable(R.drawable.radio_background));
-		
-		TypedArray tA = context.obtainStyledAttributes(attrs,
-				R.styleable.wingokuflatui);
-
-		final String userColor = tA
-				.getString(R.styleable.wingokuflatui_rbColor);
-		
-
-		tA.recycle();
-		
-		if(userColor == null || userColor.isEmpty())
-		{
-			throw new NullPointerException("RadioButton color is not provided!");
-		}
-		
-		GradientDrawable gDrawable = (GradientDrawable) this.getBackground();
-		
-		gDrawable.setStroke(width, Color.parseColor(userColor));
-		
-		
-		// setting radius
-		//gDrawable.setCornerRadius(cornerRadii);
-		
-		this.setBackground(gDrawable);
-		
-		
-		setInsides(Color.TRANSPARENT);
-		
-		
-		this.setOnTouchListener(new OnTouchListener() {
 			
-			@Override
-			public boolean onTouch(View arg0, MotionEvent event) {
-				
-				isRadioButtonEnabled();
-				
-				if(event.getAction() == MotionEvent.ACTION_DOWN)
-				{
-					if(!isChecked)
-					{
-						isChecked = true;
-						setInsides(Color.parseColor(userColor));
-						
-						WinGokuFlatRadioButton.this.invalidate();
-						//WinGokuFlatCheckBox.this.setButtonDrawable(inDrawable);
-						
-					}
-					else
-					{
-						isChecked = false;
-						setInsides(Color.TRANSPARENT);
+			this.setBackground(getResources().getDrawable(R.drawable.radio_background));
+			
+			TypedArray tA = context.obtainStyledAttributes(attrs,
+					R.styleable.wingokuflatui);
 	
-						WinGokuFlatRadioButton.this.invalidate();
-					}
-				
-				}				
-				return false;
+			final String userColor = tA
+					.getString(R.styleable.wingokuflatui_rbColor);
+			
+	
+			tA.recycle();
+			
+			if(userColor == null || userColor.isEmpty())
+			{
+				throw new NullPointerException("RadioButton color is not provided!");
 			}
-		});	
+			
+			GradientDrawable gDrawable = (GradientDrawable) this.getBackground();
+			
+			gDrawable.setStroke(width, Color.parseColor(userColor));
+			
+			
+			// setting radius
+			//gDrawable.setCornerRadius(cornerRadii);
+			
+			this.setBackground(gDrawable);
+			
+			
+			setInsides(Color.TRANSPARENT);
+			
+			
+			this.setOnTouchListener(new OnTouchListener() {
+				
+				@Override
+				public boolean onTouch(View arg0, MotionEvent event) {
+					
+					isRadioButtonEnabled();
+					
+					if(event.getAction() == MotionEvent.ACTION_DOWN)
+					{
+						if(!isChecked)
+						{
+							isChecked = true;
+							setInsides(Color.parseColor(userColor));
+							
+							WinGokuFlatRadioButton.this.invalidate();
+							//WinGokuFlatCheckBox.this.setButtonDrawable(inDrawable);
+							
+						}
+						else
+						{
+							isChecked = false;
+							setInsides(Color.TRANSPARENT);
+		
+							WinGokuFlatRadioButton.this.invalidate();
+						}
+					
+					}				
+					return false;
+				}
+			});	
+		}
 	}
 	
 	private void isRadioButtonEnabled() {

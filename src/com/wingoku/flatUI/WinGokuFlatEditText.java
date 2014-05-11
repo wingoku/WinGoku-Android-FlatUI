@@ -41,18 +41,24 @@ public class WinGokuFlatEditText extends EditText{
 
 	private void initialize(Context context, AttributeSet attrs)
 	{
-		this.setBackground(getResources().getDrawable(R.drawable.background));
+		if(!isInEditMode())
+		{
+			this.setBackground(getResources().getDrawable(R.drawable.background));
 		
-		TypedArray tA = context.obtainStyledAttributes(attrs,
-				R.styleable.wingokuflatui);
-
-		backgroundColor = tA
-				.getString(R.styleable.wingokuflatui_backgroundColor);
-
-
-		tA.recycle();
 		
-		this.getBackground().setColorFilter(Color.parseColor(backgroundColor),
-				PorterDuff.Mode.DARKEN);
+			TypedArray tA = context.obtainStyledAttributes(attrs,
+					R.styleable.wingokuflatui);
+	
+			backgroundColor = tA
+					.getString(R.styleable.wingokuflatui_backgroundColor);
+	
+	
+			tA.recycle();
+			
+			this.getBackground().setColorFilter(Color.parseColor(backgroundColor),
+					PorterDuff.Mode.DARKEN);
+
+		}
+
 	}
 }

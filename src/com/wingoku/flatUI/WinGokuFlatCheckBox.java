@@ -52,76 +52,78 @@ public class WinGokuFlatCheckBox extends CheckBox{
 	
 	private void initializeShit(Context context, AttributeSet attrs)
 	{
-		setText("");
-		//isCheckBoxEnabled();
-		
-		this.setBackground(getResources().getDrawable(R.drawable.checkbox_background));
-		
-		TypedArray tA = context.obtainStyledAttributes(attrs,
-				R.styleable.wingokuflatui);
-
-		final String userColor = tA
-				.getString(R.styleable.wingokuflatui_cbColor);
-		
-
-		tA.recycle();
-		
-		if(userColor == null || userColor.isEmpty())
+		if(!isInEditMode())
 		{
-			throw new NullPointerException("Checkbox color is not provided!");
-		}
-		
-		final GradientDrawable gDrawable = (GradientDrawable) this.getBackground();
-		
-		gDrawable.setStroke(width, Color.parseColor(userColor));
-		
-		
-		// setting cornerRadii
-		gDrawable.setCornerRadius(cornerRadii);
-		
-		this.setBackground(gDrawable);
-
-		
-		setInsides(Color.TRANSPARENT);
-		
-		
-		this.setOnTouchListener(new OnTouchListener() {
+			setText("");
+			//isCheckBoxEnabled();
 			
-			@Override
-			public boolean onTouch(View arg0, MotionEvent event) {
-				
-				
-				isCheckBoxEnabled();
-				
-				
-				if(event.getAction() == MotionEvent.ACTION_DOWN)
-				{
-					if(!isChecked)
-					{
-						isChecked = true;
-						setInsides(Color.parseColor(userColor));
-						
-						WinGokuFlatCheckBox.this.invalidate();
-						//WinGokuFlatCheckBox.this.setButtonDrawable(inDrawable);
-						
-					}
-					else
-					{
-						isChecked = false;
+			this.setBackground(getResources().getDrawable(R.drawable.checkbox_background));
+			
+			TypedArray tA = context.obtainStyledAttributes(attrs,
+					R.styleable.wingokuflatui);
 	
-						setInsides(Color.TRANSPARENT);
+			final String userColor = tA
+					.getString(R.styleable.wingokuflatui_cbColor);
+			
 	
-						WinGokuFlatCheckBox.this.invalidate();
-					
-					}
-				
-				}				
-				return false;
+			tA.recycle();
+			
+			if(userColor == null || userColor.isEmpty())
+			{
+				throw new NullPointerException("Checkbox color is not provided!");
 			}
-
 			
-		});
+			final GradientDrawable gDrawable = (GradientDrawable) this.getBackground();
+			
+			gDrawable.setStroke(width, Color.parseColor(userColor));
+			
+			
+			// setting cornerRadii
+			gDrawable.setCornerRadius(cornerRadii);
+			
+			this.setBackground(gDrawable);
+	
+			
+			setInsides(Color.TRANSPARENT);
+			
+			
+			this.setOnTouchListener(new OnTouchListener() {
+				
+				@Override
+				public boolean onTouch(View arg0, MotionEvent event) {
+					
+					
+					isCheckBoxEnabled();
+					
+					
+					if(event.getAction() == MotionEvent.ACTION_DOWN)
+					{
+						if(!isChecked)
+						{
+							isChecked = true;
+							setInsides(Color.parseColor(userColor));
+							
+							WinGokuFlatCheckBox.this.invalidate();
+							//WinGokuFlatCheckBox.this.setButtonDrawable(inDrawable);
+							
+						}
+						else
+						{
+							isChecked = false;
 		
+							setInsides(Color.TRANSPARENT);
+		
+							WinGokuFlatCheckBox.this.invalidate();
+						
+						}
+					
+					}				
+					return false;
+				}
+	
+				
+			});
+		}
 	}
 	
 	private void isCheckBoxEnabled() {
