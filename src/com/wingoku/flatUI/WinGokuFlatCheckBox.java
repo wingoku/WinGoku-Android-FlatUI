@@ -22,21 +22,46 @@ public class WinGokuFlatCheckBox extends CheckBox{
 	
 	private boolean isChecked = false;
 	
-	final String userColor;
 	
 	public WinGokuFlatCheckBox(Context context, AttributeSet attrs) {
 		super(context, attrs);
 		
+		
+		initializeShit(context, attrs);
+
+	
+	}
+	
+	
+	public WinGokuFlatCheckBox(Context context) {
+		super(context);
+
+		initializeShit(context,null);
+	}
+
+	
+
+	
+	public WinGokuFlatCheckBox(Context context, AttributeSet attrs, int defStyle) {
+		super(context, attrs, defStyle);
+		
+		initializeShit(context,attrs);
+		
+	}
+	
+	
+	private void initializeShit(Context context, AttributeSet attrs)
+	{
 		setText("");
 		//isCheckBoxEnabled();
 		
 		this.setBackground(getResources().getDrawable(R.drawable.checkbox_background));
 		
 		TypedArray tA = context.obtainStyledAttributes(attrs,
-				R.styleable.wingokuFlatCheckBox);
+				R.styleable.wingokuflatui);
 
-		userColor = tA
-				.getString(R.styleable.wingokuFlatCheckBox_cbColor);
+		final String userColor = tA
+				.getString(R.styleable.wingokuflatui_cbColor);
 		
 
 		tA.recycle();
@@ -97,11 +122,7 @@ public class WinGokuFlatCheckBox extends CheckBox{
 			
 		});
 		
-		
-
-	
 	}
-	
 	
 	private void isCheckBoxEnabled() {
 		

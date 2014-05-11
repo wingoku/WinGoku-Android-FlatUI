@@ -18,20 +18,48 @@ public class WinGokuFlatButton extends Button {
 
 	public WinGokuFlatButton(Context context, AttributeSet attrs) {
 		super(context, attrs);
+		testing(context,attrs);
 		
+	}
+
+	
+	public WinGokuFlatButton(Context context) {
+		super(context);
+
+		testing(context,null);
+	}
+
+	
+
+	
+	public WinGokuFlatButton(Context context, AttributeSet attrs, int defStyle) {
+		super(context, attrs, defStyle);
+		
+		testing(context,attrs);
+		//this.setBackground(getResources().getDrawable(R.drawable.background));
+	}
+	
+	private void testing(Context context, AttributeSet attrs)
+	{
 		this.setBackground(getResources().getDrawable(R.drawable.background));
 
-		TypedArray tA = context.obtainStyledAttributes(attrs,
-				R.styleable.wingokuFlatButton);
-
-		normalStatecolor = tA
-				.getString(R.styleable.wingokuFlatButton_normalStateColor);
-
-		pressedStateColor = tA
-				.getString(R.styleable.wingokuFlatButton_pressedStateColor);
-		
-		tA.recycle();
-		
+		if(attrs!=null)
+		{
+			TypedArray tA = context.obtainStyledAttributes(attrs,
+					R.styleable.wingokuflatui);
+	
+			normalStatecolor = tA
+					.getString(R.styleable.wingokuflatui_normalStateColor);
+	
+			pressedStateColor = tA
+					.getString(R.styleable.wingokuflatui_pressedStateColor);
+			
+			tA.recycle();
+		}
+		else
+		{
+			normalStatecolor = pressedStateColor = "#426689";
+		}
 		this.getBackground().setColorFilter(Color.parseColor(normalStatecolor),
 				PorterDuff.Mode.DARKEN);
 
@@ -64,18 +92,6 @@ public class WinGokuFlatButton extends Button {
 				return false;
 			}
 		});
-	}
-
-	
-	public WinGokuFlatButton(Context context) {
-		super(context);
-
-	}
-
-	public WinGokuFlatButton(Context context, AttributeSet attrs, int defStyle) {
-		super(context, attrs, defStyle);
-		
-		//this.setBackground(getResources().getDrawable(R.drawable.background));
 	}
 
 }

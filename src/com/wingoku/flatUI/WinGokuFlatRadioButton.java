@@ -19,11 +19,36 @@ public class WinGokuFlatRadioButton extends RadioButton{
 	
 	private boolean isChecked = false;
 	
-	final String userColor;
+	
+
+	
+	public WinGokuFlatRadioButton(Context context) {
+		super(context);
+
+		initializeShit(context,null);
+	}
+
+	
+
+	
+	public WinGokuFlatRadioButton(Context context, AttributeSet attrs, int defStyle) {
+		super(context, attrs, defStyle);
+		
+		initializeShit(context,attrs);
+		
+	}
 	
 	public WinGokuFlatRadioButton(Context context, AttributeSet attrs) {
 		super(context, attrs);
 		
+		
+		initializeShit(context, attrs);
+		
+		
+	}
+	
+	private void initializeShit(Context context, AttributeSet attrs)
+	{
 		setText(""); // removing text set by the user inside the radioButton widget, because it appears inside the radioButton for some reason
 		
 		//isRadioButtonEnabled();
@@ -31,10 +56,10 @@ public class WinGokuFlatRadioButton extends RadioButton{
 		this.setBackground(getResources().getDrawable(R.drawable.radio_background));
 		
 		TypedArray tA = context.obtainStyledAttributes(attrs,
-				R.styleable.wingokuFlatRadioButton);
+				R.styleable.wingokuflatui);
 
-		userColor = tA
-				.getString(R.styleable.wingokuFlatRadioButton_rbColor);
+		final String userColor = tA
+				.getString(R.styleable.wingokuflatui_rbColor);
 		
 
 		tA.recycle();
@@ -89,7 +114,6 @@ public class WinGokuFlatRadioButton extends RadioButton{
 			}
 		});	
 	}
-	
 	
 	private void isRadioButtonEnabled() {
 		
